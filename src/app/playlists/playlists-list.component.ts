@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Playlist } from './playlist';
 
 @Component({
@@ -12,6 +12,17 @@ export class PlaylistsListComponent implements OnInit {
 
   @Input('playlists')
   playlists: Playlist[] = [];
+
+  @Output('selectedChange')
+  selectedChange = new EventEmitter<Playlist>()
+
+  select(playlist: Playlist){
+    this.selected = playlist;
+    this.selectedChange.emit(playlist)
+
+    // (selectedChange)="xxx"
+    // this.selectedChange.subscribe($event => xxx)
+  }
 
   constructor() { }
 
