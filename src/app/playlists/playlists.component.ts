@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Playlist } from './playlist';
 
 @Component({
   selector: 'playlists',
@@ -7,7 +8,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PlaylistsComponent implements OnInit {
 
-  constructor() { }
+  selected: Playlist;
+
+  playlists:Playlist[] = [
+    { id:1, name:"*ngIf",color: '#dd0000', fcolor: '#fff'},
+    { id:2, name:"*ngFor",color: '#cc0000', fcolor: '#aaaa00'},
+    { id:3, name:"Input()",color: '#000000', fcolor: '#fff'},
+    { id:4, name:"Output()",color: '#000000', fcolor: '#fff'}
+  ]
+
+  constructor() { 
+    this.selected = this.playlists[3]
+  }
 
   ngOnInit() {
   }
