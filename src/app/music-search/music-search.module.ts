@@ -4,6 +4,7 @@ import { MusicSearchComponent } from './music-search.component';
 import { SearchFormComponent } from './search-form.component';
 import { AlbumsListComponent } from './albums-list.component';
 import { AlbumItemComponent } from './album-item.component';
+import { MusicService } from './music.service';
 
 @NgModule({
 imports: [CommonModule],
@@ -12,6 +13,9 @@ declarations: [
     SearchFormComponent,
     AlbumItemComponent,
     AlbumsListComponent
+],
+providers: [
+    MusicService
 ],
 exports:[MusicSearchComponent]
 })
