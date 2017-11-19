@@ -8,6 +8,7 @@ import { Playlist } from './playlist';
 })
 export class PlaylistsListComponent implements OnInit {
 
+  @Input()
   selected: Playlist;
 
   @Input('playlists')
@@ -17,7 +18,7 @@ export class PlaylistsListComponent implements OnInit {
   selectedChange = new EventEmitter<Playlist>()
 
   select(playlist: Playlist){
-    this.selected = playlist;
+    // this.selected = playlist;
     this.selectedChange.emit(playlist)
 
     // (selectedChange)="xxx"
