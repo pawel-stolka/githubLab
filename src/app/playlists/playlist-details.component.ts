@@ -15,6 +15,19 @@ export class PlaylistDetailsComponent implements OnInit {
     color: '#dd0000'
   }
 
+  mode = 'show'
+
+  save(e){
+    console.log('saved!', e)
+    this.mode = 'show'
+  }
+  edit(e){
+    this.mode = 'edit'
+  }
+  cancel(e){
+    this.mode = 'show'
+  }
+
   constructor() { }
 
   ngOnInit() {
