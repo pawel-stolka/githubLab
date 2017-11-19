@@ -11,8 +11,8 @@ export class PlaylistDetailsComponent implements OnInit {
   playlist: Playlist = {
     id: 1,
     name: "Learning after Mateusz Workshops",
-    fcolor: '#fff',
-    color: '#123456'
+    fcolor: '#121212',
+    color: '#dd0000'
   }
 
   constructor() { }
