@@ -1,4 +1,15 @@
-<p>
+<!-- <p>
   playlists-list works!
 </p>
-<playlist-item></playlist-item>
+<playlist-item></playlist-item> -->
+
+<ul class="list-group">
+  <li *ngFor="let playlist of playlists; let i=index"
+
+    (click)="selected = playlist" 
+    [class.active]="selected == playlist"
+    
+    class="list-group-item">
+      {{i + 1}}. {{playlist.name}}
+  </li>
+</ul>
