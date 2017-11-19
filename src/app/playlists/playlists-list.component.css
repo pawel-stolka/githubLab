@@ -1,0 +1,12 @@
+:host() {
+    border: 1px solid purple;
+    display: block;
+}
+
+:host(.class-from-parent) {
+    background: blue;
+}
+
+:host() ::ng-deep p {
+    color: hotpink;
+}
