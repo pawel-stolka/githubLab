@@ -1,0 +1,6 @@
+<label>Exercise</label>
+<div 
+  *ngFor="let item of items"
+  (click)="select(item)">
+  {{item.id}}. {{item.name}} - {{item.number}} ({{item.sth}})
+</div>

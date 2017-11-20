@@ -8,6 +8,8 @@ import { PlaylistsComponent } from './playlists/playlists.component';
 import { PlaylistsListComponent } from './playlists/playlists-list.component';
 import { PlaylistItemComponent } from './playlists/playlist-item.component';
 import { PlaylistDetailsComponent } from './playlists/playlist-details.component';
+import { ExerciseComponent } from './exercise/exercise.component';
+import { DiexerciseService } from './exercise/diexercise.service';
 
 @NgModule({
   declarations: [
@@ -15,14 +17,15 @@ import { PlaylistDetailsComponent } from './playlists/playlist-details.component
     PlaylistsComponent,
     PlaylistsListComponent,
     PlaylistItemComponent,
-    PlaylistDetailsComponent
+    PlaylistDetailsComponent,
+    ExerciseComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     MusicSearchModule
   ],
-  providers: [],
+  providers: [DiexerciseService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
