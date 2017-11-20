@@ -10,6 +10,7 @@ import { PlaylistItemComponent } from './playlists/playlist-item.component';
 import { PlaylistDetailsComponent } from './playlists/playlist-details.component';
 import { ExerciseComponent } from './exercise/exercise.component';
 import { DiexerciseService } from './exercise/diexercise.service';
+import { GithubComponent } from './github/github.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { DiexerciseService } from './exercise/diexercise.service';
     PlaylistsListComponent,
     PlaylistItemComponent,
     PlaylistDetailsComponent,
-    ExerciseComponent
+    ExerciseComponent,
+    GithubComponent
   ],
   imports: [
     BrowserModule,
