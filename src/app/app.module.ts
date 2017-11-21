@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms'
+import { FormsModule, ReactiveFormsModule } from '@angular/forms'
 import { MusicSearchModule } from './music-search/music-search.module';
 import { HttpClientModule} from '@angular/common/http'
 
@@ -28,7 +28,8 @@ import { GithubService } from './github.service';
     BrowserModule,
     FormsModule,
     MusicSearchModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule    
   ],
   providers: [DiexerciseService, GithubService],
   bootstrap: [AppComponent]
