@@ -1,15 +1,14 @@
 <div class="row">
     <div class="col">
-        input
-        <input type="text" class="form-control" #queryRef>
-        <span class="input-group-btn">
-        <button 
-          (click)="try(queryRef.value)"
-          class="btn btn-warning">Try</button>
-      </span>
+        <div class="input-group mb-2">
+            <input type="text" class="form-control" [(ngModel)]="query">
+            <span class="input-group-btn">
+              <button (click)="try(query)"
+                class="btn btn-warning">Try</button>
+            </span>
+        </div>
     </div>
 </div>
-<hr>
 
 <div class="row">
     <div class="col form-group">

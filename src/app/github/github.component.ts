@@ -11,7 +11,7 @@ import 'rxjs/add/operator/map'
 export class GithubComponent implements OnInit {
   userInfo: any;
   userBase = 'https://api.github.com/users/';
-  query: string = 'octocat'; 
+  query = 'octocat'; 
   username: string = 'octocat';
   // results: any;
   client_id='d26dbb03b3670269a61e';
@@ -30,7 +30,7 @@ export class GithubComponent implements OnInit {
   try(value) {
     console.log(value)
   }
-  
+
   getUser(query) {
     let url = this.userBase + query;// this.username
     this.followersUrl = url + '/followers' + this.userTokenParam;
