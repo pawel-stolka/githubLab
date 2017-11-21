@@ -2,8 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { GithubService } from '../github.service';
 import { HttpClient } from '@angular/common/http';
 import 'rxjs/add/operator/map' 
-import 'rxjs/add/operator/delay' 
-import { FormGroup, FormControl } from '@angular/forms';
 
 @Component({
   selector: 'github',
@@ -13,9 +11,8 @@ import { FormGroup, FormControl } from '@angular/forms';
 export class GithubComponent implements OnInit {
   userInfo: any;
   userBase = 'https://api.github.com/users/';
-  query = '';// 'octocat'; 
-  queryForm: FormGroup
-  username: string = '';
+  query: string = 'octocat'; 
+  username: string = 'octocat';
   // results: any;
   client_id='d26dbb03b3670269a61e';
   client_secret='0c4fb6aeba85678269c84ba55ce0ccf9c842ac75';
@@ -26,35 +23,18 @@ export class GithubComponent implements OnInit {
   followersAvatarUrls: any[];//: string[];
   followersAll: any[] = [];
 
-  constructor(private http: HttpClient) {
-    this.queryForm = new FormGroup({
-      'query': new FormControl('octocat')
-    })
-    window['form'] = this.queryForm
-
-    this.queryForm.get('query')
-      .valueChanges
-      .subscribe(
-        value => this.getUser(value)
-      )
-  }
+  constructor(private http: HttpClient) {}
 
   // constructor(private service: GithubService) { }
-
-  try(value) {
-    console.log(value)
-  }
 
   getUser(query) {
     let url = this.userBase + query;// this.username
     this.followersUrl = url + '/followers' + this.userTokenParam;
-    let userQuery = url + this.userTokenParam;
-    this.http.get(userQuery)
-    .delay(500)
+    console.log('followersUrl: ' + this.followersUrl);
+    this.http.get(url)
       .subscribe(
         data => {
           this.userInfo = data;
-          console.log("this.userInfo")
           console.log(this.userInfo)
           this.fetched = true;
           this.getFollowers()
@@ -64,12 +44,6 @@ export class GithubComponent implements OnInit {
           console.log(err.error.message)
         }
       )
-  }
-
-  test(value) {
-    console.log(this.queryForm.value)
-    // let searchInput = document.getElementById("searchInput");
-    // console.log(searchInput)
   }
 
   getFollowers() {
