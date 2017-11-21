@@ -5,6 +5,13 @@ import 'rxjs/add/operator/map'
 import 'rxjs/add/operator/delay' 
 import { FormGroup, FormControl } from '@angular/forms';
 
+interface IFav {
+  login: string
+}
+class Fav implements IFav {
+  login: string;
+}
+
 @Component({
   selector: 'github',
   templateUrl: './github.component.html',
@@ -25,6 +32,7 @@ export class GithubComponent implements OnInit {
   followers: number;
   followersAvatarUrls: any[];//: string[];
   followersAll: any[] = [];
+  favs:Fav[] = [];
 
   constructor(private http: HttpClient) {
     this.queryForm = new FormGroup({
@@ -67,9 +75,10 @@ export class GithubComponent implements OnInit {
   }
 
   test(value) {
-    console.log(this.queryForm.value)
+    // console.log(this.queryForm.value)
     // let searchInput = document.getElementById("searchInput");
-    // console.log(searchInput)
+    this.favs.push({login: value})
+    console.log(this.favs)
   }
 
   getFollowers() {

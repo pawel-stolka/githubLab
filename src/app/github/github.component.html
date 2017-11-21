@@ -42,6 +42,11 @@
             <strong>created_at</strong>
             <span>{{userInfo.created_at}}</span>
         </p>
+        <p>
+            <strong>favs </strong>
+            <span *ngFor="let fav of favs; let i=index;">
+                <p>{{i+1}}. {{fav.login}}</p></span>
+        </p>
     </div>
     <div class="col" *ngIf="followers>0">
         <h2>Followers: {{followers}}</h2>
@@ -53,6 +58,7 @@
                         <th>id</th>
                         <th>Login</th>
                         <th>Avatar</th>
+                        <th></th>
                         <!-- <th>events_url</th> -->
                     </tr>
                 </thead>
@@ -64,7 +70,7 @@
                             <h4>{{url.login}}</h4>
                         </td>
                         <td><img [src]="url.avatar_url" (click)="query=url.avatar_url" class="imageFollowers"></td>
-
+                        <td><input type="checkbox"></td>
                         <!-- <td>{{url.events_url}}</td> -->
 
                     </tr>
