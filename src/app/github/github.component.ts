@@ -20,6 +20,8 @@ class Fav implements IFav {
 export class GithubComponent implements OnInit {
   userInfo: any;
   userBase = 'https://api.github.com/users/';
+  query: string = 'octocat'; 
+  username: string = 'octocat';
   query = '';// 'octocat'; 
   queryForm: FormGroup
   username: string = '';
@@ -34,6 +36,7 @@ export class GithubComponent implements OnInit {
   followersAll: any[] = [];
   favs:Fav[] = [];
 
+  constructor(private http: HttpClient) {}
   constructor(private http: HttpClient) {
     this.queryForm = new FormGroup({
       'query': new FormControl('octocat')
@@ -56,13 +59,14 @@ export class GithubComponent implements OnInit {
   getUser(query) {
     let url = this.userBase + query;// this.username
     this.followersUrl = url + '/followers' + this.userTokenParam;
+    console.log('followersUrl: ' + this.followersUrl);
+    this.http.get(url)
     let userQuery = url + this.userTokenParam;
     this.http.get(userQuery)
     .delay(500)
       .subscribe(
         data => {
           this.userInfo = data;
-          console.log("this.userInfo")
           console.log(this.userInfo)
           this.fetched = true;
           this.getFollowers()

@@ -11,17 +11,10 @@
 
 <!-- <div class="row">
     <div class="col form-group">
-        <!-- <form [formGroup]="queryForm">
-            <div class="input-group mb-2">
-            </div>
-            <input type="text" class="form-control" formControlName="query">
-        </form> 
-
-        <form (submit)="getUser(query)"></form>
-        <input class="form-control" type="text" [(ngModel)]="query" placeholder="octocat">
+        <input class="form-control" type="text" [(ngModel)]="query">
         <button class="btn btn-warning" (click)="getUser(query)">Get User</button>
     </div>
-</div> -->
+</div>
 
 <div *ngIf="fetched==true" class="row">
     <div class="col narrow-30">
@@ -63,13 +56,13 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr *ngFor="let url of followersAll; let i=index;" (click)="test(url.login)">
+                    <tr *ngFor="let url of followersAll; let i=index;">
                         <td>{{i+1}}.</td>
                         <td>{{url.id}}</td>
                         <td>
                             <h4>{{url.login}}</h4>
                         </td>
-                        <td><img [src]="url.avatar_url" (click)="query=url.avatar_url" class="imageFollowers"></td>
+                        <td><img [src]="url.avatar_url" class="imageFollowers"></td>
                         <td><input type="checkbox"></td>
                         <!-- <td>{{url.events_url}}</td> -->
 
