@@ -1,3 +1,41 @@
-<p>
-  github works!
-</p>
+<div class="row">
+  <div class="col form-group">
+    <input class="form-control" type="text" (change)="username=$event.target.value" [value]="username">
+    <button class="btn btn-warning" (click)="getUser()">Get User</button>
+  </div>
+</div>
+<div *ngIf="fetched==true" class="row">
+  <div class="col">
+    <img [src]="userInfo.avatar_url" class="image">
+    <p>
+      <strong>login</strong>
+      <span>{{userInfo.login}}</span>
+    </p>
+    <p>
+      <strong>name</strong>
+      <span>{{userInfo.name}}</span>
+    </p>
+    <p>
+      <strong>location</strong>
+      <span>{{userInfo.location}}</span>
+    </p>
+    <!-- <p><strong>repos_url</strong> <span>{{userInfo.repos_url}}</span></p>
+    <p><strong>followers_url</strong> <span>{{userInfo.followers_url}}</span></p>
+    <p><strong>events_url</strong> <span>{{userInfo.events_url}}</span></p> -->
+    <p>
+      <strong>created_at</strong>
+      <span>{{userInfo.created_at}}</span>
+    </p>
+  </div>
+  <div *ngIf="followers>0">
+    <div *ngFor="let url of followersAll" class="col">
+      <div class="row">
+        <div class="col">{{url.login}}</div>
+        <div class="col"><img [src]="url.avatar_url" class="imageFollowers"></div>
+      </div>
+      
+        
+        
+    </div>
+  </div>
+</div>

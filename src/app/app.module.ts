@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms'
 import { MusicSearchModule } from './music-search/music-search.module';
+import { HttpClientModule} from '@angular/common/http'
 
 import { AppComponent } from './app.component';
 import { PlaylistsComponent } from './playlists/playlists.component';
@@ -11,6 +12,7 @@ import { PlaylistDetailsComponent } from './playlists/playlist-details.component
 import { ExerciseComponent } from './exercise/exercise.component';
 import { DiexerciseService } from './exercise/diexercise.service';
 import { GithubComponent } from './github/github.component';
+import { GithubService } from './github.service';
 
 @NgModule({
   declarations: [
@@ -25,9 +27,10 @@ import { GithubComponent } from './github/github.component';
   imports: [
     BrowserModule,
     FormsModule,
-    MusicSearchModule
+    MusicSearchModule,
+    HttpClientModule
   ],
-  providers: [DiexerciseService],
+  providers: [DiexerciseService, GithubService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
