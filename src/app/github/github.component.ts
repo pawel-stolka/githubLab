@@ -27,6 +27,10 @@ export class GithubComponent implements OnInit {
 
   // constructor(private service: GithubService) { }
 
+  try(value) {
+    console.log(value)
+  }
+  
   getUser(query) {
     let url = this.userBase + query;// this.username
     this.followersUrl = url + '/followers' + this.userTokenParam;

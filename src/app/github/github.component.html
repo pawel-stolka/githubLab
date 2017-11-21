@@ -1,5 +1,19 @@
 <div class="row">
+    <div class="col">
+        input
+        <input type="text" class="form-control" #queryRef>
+        <span class="input-group-btn">
+        <button 
+          (click)="try(queryRef.value)"
+          class="btn btn-warning">Try</button>
+      </span>
+    </div>
+</div>
+<hr>
+
+<div class="row">
     <div class="col form-group">
+        <form (submit)="getUser(query)"></form>
         <input class="form-control" type="text" [(ngModel)]="query">
         <button class="btn btn-warning" (click)="getUser(query)">Get User</button>
     </div>
