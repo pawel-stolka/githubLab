@@ -1,0 +1,75 @@
+<div class="row">
+    <div class="col">
+        <form [formGroup]="queryForm">
+            <div class="input-group mb-2">
+
+                <input id="searchInput" type="text" class="form-control" formControlName="query" placeholder="octocat">
+            </div>
+        </form>
+    </div>
+</div>
+
+<!-- <div class="row">
+    <div class="col form-group">
+        <!-- <form [formGroup]="queryForm">
+            <div class="input-group mb-2">
+            </div>
+            <input type="text" class="form-control" formControlName="query">
+        </form> 
+
+        <form (submit)="getUser(query)"></form>
+        <input class="form-control" type="text" [(ngModel)]="query" placeholder="octocat">
+        <button class="btn btn-warning" (click)="getUser(query)">Get User</button>
+    </div>
+</div> -->
+
+<div *ngIf="fetched==true" class="row">
+    <div class="col narrow-30">
+        <img [src]="userInfo.avatar_url" class="image">
+        <p>
+            <strong>login</strong>
+            <span>{{userInfo.login}}</span>
+        </p>
+        <p>
+            <strong>name</strong>
+            <span>{{userInfo.name}}</span>
+        </p>
+        <p>
+            <strong>location</strong>
+            <span>{{userInfo.location}}</span>
+        </p>
+        <p>
+            <strong>created_at</strong>
+            <span>{{userInfo.created_at}}</span>
+        </p>
+    </div>
+    <div class="col" *ngIf="followers>0">
+        <h2>Followers: {{followers}}</h2>
+        <div class="row">
+            <table class="table table-condensed table-hover narrow-70">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>id</th>
+                        <th>Login</th>
+                        <th>Avatar</th>
+                        <!-- <th>events_url</th> -->
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let url of followersAll; let i=index;" (click)="test(url.login)">
+                        <td>{{i+1}}.</td>
+                        <td>{{url.id}}</td>
+                        <td>
+                            <h4>{{url.login}}</h4>
+                        </td>
+                        <td><img [src]="url.avatar_url" (click)="query=url.avatar_url" class="imageFollowers"></td>
+
+                        <!-- <td>{{url.events_url}}</td> -->
+
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

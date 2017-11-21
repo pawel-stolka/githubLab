@@ -1,0 +1,17 @@
+.image {
+    max-width: 40%;
+}
+
+.imageFollowers {
+    max-width: 100px;
+    border: 5px solid rgb(255, 0, 140);
+    margin: 1px;
+}
+
+.narrow-30 {
+    max-width: 40%;
+}
+
+.narrow-80 {
+    max-width: 80%;
+}
