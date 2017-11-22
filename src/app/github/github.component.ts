@@ -1,16 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { GithubService } from '../github.service';
 import { HttpClient } from '@angular/common/http';
+import { FormGroup, FormControl } from '@angular/forms';
+import { Fav } from '../Fav';
+
 import 'rxjs/add/operator/map' 
 import 'rxjs/add/operator/delay' 
-import { FormGroup, FormControl } from '@angular/forms';
-
-interface IFav {
-  login: string
-}
-class Fav implements IFav {
-  login: string;
-}
 
 @Component({
   selector: 'github',
@@ -20,7 +15,7 @@ class Fav implements IFav {
 export class GithubComponent implements OnInit {
   userInfo: any;
   userBase = 'https://api.github.com/users/';
-  query = '';// 'octocat'; 
+  query = 'octocat'; 
   queryForm: FormGroup
   username: string = '';
   // results: any;
@@ -36,7 +31,7 @@ export class GithubComponent implements OnInit {
 
   constructor(private http: HttpClient) {
     this.queryForm = new FormGroup({
-      'query': new FormControl('octocat')
+      'query': new FormControl(this.query)
     })
     window['form'] = this.queryForm
 
@@ -77,7 +72,7 @@ export class GithubComponent implements OnInit {
   test(value) {
     // console.log(this.queryForm.value)
     // let searchInput = document.getElementById("searchInput");
-    this.favs.push({login: value})
+    this.favs.push({ id: 100, login: value})
     console.log(this.favs)
   }
 
@@ -87,7 +82,8 @@ export class GithubComponent implements OnInit {
     // .map( () => { console.log("data")})
       .subscribe(
         data => {
-          // console.log(data)
+          console.log('followers data:')
+          console.log(data)
           this.followers = Object.keys(data).length
           for(let key in data) {
             console.log(data[key])

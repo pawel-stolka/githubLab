@@ -13,6 +13,7 @@ import { ExerciseComponent } from './exercise/exercise.component';
 import { DiexerciseService } from './exercise/diexercise.service';
 import { GithubComponent } from './github/github.component';
 import { GithubService } from './github.service';
+import { VisualizationComponent } from './visualization/visualization.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { GithubService } from './github.service';
     PlaylistItemComponent,
     PlaylistDetailsComponent,
     ExerciseComponent,
-    GithubComponent
+    GithubComponent,
+    VisualizationComponent
   ],
   imports: [
     BrowserModule,
